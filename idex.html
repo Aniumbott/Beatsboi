@@ -48,7 +48,7 @@
               Acoustic Snare
             </option>
             <option value="./sounds/snare-808.wav">808 Snare</option>
-            <option value="./sounds/snare-vinyl.wav">Snare Vinyl</option>
+            <option value="./sounds/snare-vinyl01.wav">Snare Vinyl</option>
           </select>
         </div>
         <div class="snare">
@@ -96,6 +96,16 @@
 
       <!-- Play/Pause button -->
       <button class="play">Play</button>
+      <div class="tempo">
+        <input
+          type="range"
+          class="tempo-slider"
+          max="300"
+          min="20"
+          value="150"
+        />
+        <p>Tempo : <span class="tempo-nr">150</span></p>
+      </div>
     </div>
 
     <audio class="kick-sound" src="./sounds/kick-classic.wav"></audio>
