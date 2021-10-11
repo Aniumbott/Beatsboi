@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "zocool";
+  src: url(./fonts/ZCOOLQingKeHuangYou-Regular.ttf);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "zocool", sans-serif;
+  background: radial-gradient(#2d1b3b, #0d0d0d);
+  color: #a75cf2;
+}
+
+i,
+svg {
+  pointer-events: none;
+}
+
+.sequencer {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.kick-pad,
+.snare-pad,
+.hihat-pad {
+  height: 5rem;
+  width: 5rem;
+  margin: 1rem 1rem;
+  cursor: pointer;
+  border: solid 0.2rem white;
+  border-radius: 3px;
+}
+
+.kick-pad {
+  background: #ee9ea5;
+}
+
+.snare-pad {
+  background: #ffdbb0;
+}
+
+.hihat-pad {
+  background: #f5ebb5;
+}
+
+.kick-pad.active {
+  background: #f25260;
+}
+
+.snare-pad.active {
+  background: #f2ac57;
+}
+
+.hihat-pad.active {
+  background: #f2de6d;
+}
+
+.kick-track,
+.snare-track,
+.hihat-track {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  justify-content: space-between;
+  margin: 2rem 5rem;
+}
+
+.kick,
+.snare,
+.hihat {
+  display: flex;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  margin: 0rem 2rem;
+}
+
+.mute {
+  padding: 1rem;
+  border: none;
+  background: rgb(84, 238, 161);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 20%;
+  transition: all 0.5s ease;
+}
+
+.mute.active {
+  background: #f25260;
+}
+
+.pad {
+  transform: all 0.5s ease;
+}
+
+.play {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background: rgb(84, 238, 161);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 3rem;
+  border-radius: 5px;
+}
+
+.play.active {
+  background: #f25260;
+}
+
+select {
+  padding: 1rem;
+  font-size: 1rem;
+  margin-left: 1rem;
+  background: white;
+  color: #a75cf2;
+  border-radius: 6px;
+}
+
+@keyframes playTrack {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
