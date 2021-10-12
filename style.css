@@ -43,14 +43,14 @@ main {
   position: fixed;
   left: 0;
   transform: rotateZ(90deg) translateY(-52%);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
   pointer-events: none;
+  animation: waves 5s linear infinite;
 }
 
 .wave-1.active,
 .wave-2.active {
-  opacity: 100%;
-  animation: waves 5s linear infinite;
+  opacity: 1;
 }
 
 .wave-2 {
@@ -59,11 +59,11 @@ main {
 
 .botm {
   transform: rotateZ(90deg) translateY(-52%) translateX(-100%);
+  animation: waves-botm 5s linear infinite;
 }
 
 .botm.active {
   opacity: 1;
-  animation: waves-botm 5s linear infinite;
 }
 
 @keyframes waves {
