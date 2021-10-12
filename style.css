@@ -326,4 +326,7 @@ footer img:hover {
     order: 2;
     padding: 1rem;
   }
+  footer img {
+    margin: 1rem;
+  }
 }
