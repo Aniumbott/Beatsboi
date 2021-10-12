@@ -15,6 +15,8 @@ html {
 }
 
 body {
+  height: 100vh;
+  width: 100vw;
   font-family: "zocool", sans-serif;
   background: radial-gradient(#2d1b3b, #0d0d0d);
   color: #a75cf2;
@@ -25,8 +27,64 @@ svg {
   pointer-events: none;
 }
 
+/* wave */
+main {
+  max-height: 90vh;
+}
+
+.wave-1,
+.wave-2 {
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  width: 100vh;
+  max-height: 20vw;
+  transform-origin: left top;
+  position: fixed;
+  left: 0;
+  transform: rotateZ(90deg) translateY(-52%);
+  transition: all 0.4s ease-in-out;
+}
+
+.wave-1.active,
+.wave-2.active {
+  opacity: 100%;
+  animation: waves 5s linear infinite;
+}
+
+.wave-2 {
+  left: 100%;
+}
+
+.botm {
+  transform: rotateZ(90deg) translateY(-52%) translateX(-100%);
+}
+
+.botm.active {
+  opacity: 1;
+  animation: waves-botm 5s linear infinite;
+}
+
+@keyframes waves {
+  from {
+    transform: rotateZ(90deg) translateY(-52%) translateX(0);
+  }
+  to {
+    transform: rotateZ(90deg) translateY(-52%) translateX(100%);
+  }
+}
+
+@keyframes waves-botm {
+  from {
+    transform: rotateZ(90deg) translateY(-52%) translateX(-100%);
+  }
+  to {
+    transform: rotateZ(90deg) translateY(-52%) translateX(0);
+  }
+}
+
 .sequencer {
-  width: 80vw;
+  width: 60vw;
   margin: auto;
   display: flex;
   min-height: 100vh;
@@ -75,7 +133,7 @@ svg {
 .hihat-track {
   display: flex;
   align-items: center;
-  width: 70%;
+  width: 100%;
   justify-content: space-between;
   margin: 2rem 5rem;
 }
@@ -92,6 +150,11 @@ svg {
   align-items: center;
   flex: 1;
   margin: 0rem 2rem;
+}
+
+.controls h1 {
+  text-align: center;
+  margin: 1rem;
 }
 
 .mute {
@@ -131,7 +194,7 @@ svg {
 select {
   padding: 1rem;
   font-size: 1rem;
-  margin-left: 1rem;
+  margin: 0 0 0 1rem;
   background: white;
   color: #a75cf2;
   border-radius: 6px;
@@ -139,14 +202,17 @@ select {
 
 .tempo {
   margin: 3rem;
-  width: 30%;
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tempo-slider {
   padding: 0.2rem;
   -webkit-appearance: none;
-  margin: 1rem 0rem;
-  width: 100%;
+  width: 80%;
+  margin: 1rem 0;
   position: relative;
   background: #ffffff;
   cursor: pointer;
@@ -169,5 +235,36 @@ select {
   }
   to {
     transform: scale(1.2);
+  }
+}
+
+@media screen and (max-width: 1760px) {
+  .sequencer {
+    width: 80vw;
+  }
+
+  .kick-track,
+  .snare-track,
+  .hihat-track {
+    flex-direction: column;
+  }
+  .controls {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  select {
+    margin: 1rem;
+  }
+  .mute {
+    margin: 1rem;
+  }
+  .kick,
+  .snare,
+  .hihat {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .tempo {
+    width: 90%;
   }
 }

@@ -9,15 +9,17 @@ class Drumkit {
     this.snareAudio = document.querySelector(".snare-sound");
     this.hihatAudio = document.querySelector(".hihat-sound");
     this.index = 0;
-    this.bpm = 300;
+    this.bpm = 150;
     this.isplaying = null;
     this.selects = document.querySelectorAll("select");
     this.muteBtns = document.querySelectorAll(".mute");
     this.tempoSlider = document.querySelector(".tempo-slider");
   }
+
   activePad() {
     this.classList.toggle("active");
   }
+
   repeat() {
     let step = this.index % 10;
     const activeBars = document.querySelectorAll(`.b${step}`);
@@ -45,6 +47,7 @@ class Drumkit {
     });
     this.index++;
   }
+
   start() {
     const interval = (60 / this.bpm) * 1000;
     // Check if it is plaaying
@@ -127,12 +130,29 @@ class Drumkit {
     this.bpm = e.target.value;
     tempoText.innerText = e.target.value;
   }
+
   updateTempo() {
     clearInterval(this.isplaying);
     this.isplaying = null;
     const playBtn = document.querySelector(".play");
     if (this.playBtn.classList.contains("active")) {
       this.start();
+    }
+  }
+
+  waves() {
+    if (this.isplaying) {
+      document.querySelector(".wave-1").classList.add("active");
+      document.querySelector(".wave-2").classList.add("active");
+      document.querySelectorAll(".botm").forEach((btm) => {
+        btm.classList.add("active");
+      });
+    } else {
+      document.querySelector(".wave-1").classList.remove("active");
+      document.querySelector(".wave-2").classList.remove("active");
+      document.querySelectorAll(".botm").forEach((btm) => {
+        btm.classList.remove("active");
+      });
     }
   }
 }
@@ -150,6 +170,7 @@ drumkit.pads.forEach((pad) => {
 drumkit.playBtn.addEventListener("click", () => {
   drumkit.updateBtn();
   drumkit.start();
+  drumkit.waves();
 });
 
 drumkit.selects.forEach((select) => {
