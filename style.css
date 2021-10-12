@@ -15,8 +15,8 @@ html {
 }
 
 body {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  max-width: 100%;
   font-family: "zocool", sans-serif;
   background: radial-gradient(#2d1b3b, #0d0d0d);
   color: #a75cf2;
@@ -29,7 +29,7 @@ svg {
 
 /* wave */
 main {
-  max-height: 90vh;
+  min-height: 90vh;
 }
 
 .wave-1,
@@ -50,6 +50,7 @@ main {
 .wave-2.active {
   opacity: 100%;
   animation: waves 5s linear infinite;
+  transition: all 0.4s ease-in-out;
 }
 
 .wave-2 {
@@ -63,6 +64,7 @@ main {
 .botm.active {
   opacity: 1;
   animation: waves-botm 5s linear infinite;
+  transition: all 0.4s ease-in-out;
 }
 
 @keyframes waves {
@@ -238,7 +240,50 @@ select {
   }
 }
 
+/* Footer */
+footer {
+  background: rgb(0, 0, 0);
+  display: flex;
+  padding: 1rem 5%;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+footer h4 {
+  font-size: 2rem;
+  flex: 3 1 40rem;
+  font-size: calc(1.4rem+1vw);
+  font-weight: normal;
+}
+
+footer span {
+  color: white;
+}
+
+footer img {
+  max-width: 3rem;
+  margin-left: 4rem;
+  transition: all 0.3s ease-in-out;
+}
+
+footer img:hover {
+  transform: scale(120%);
+}
+
 @media screen and (max-width: 1760px) {
+  main {
+    min-height: 95vh;
+  }
+
   .sequencer {
     width: 80vw;
   }
@@ -266,5 +311,19 @@ select {
   }
   .tempo {
     width: 90%;
+  }
+  footer {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  footer ul {
+    order: 1;
+  }
+  footer h4 {
+    text-align: center;
+    order: 2;
+    padding: 1rem;
   }
 }
